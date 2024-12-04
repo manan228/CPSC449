@@ -10,10 +10,12 @@ app.use(express.json());
 app.use("/user", userRoute)
 
 const mongoConnect = async () => {
-  await mongoose.connect("mongodb://localhost:27017");
+  await mongoose.connect("mongodb+srv://manan228:YGY5nuot8BwUEDlL@cluster0.uxepv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
   console.log(`DB connected`);
 };
 
 mongoConnect();
 
-app.listen(3000, () => console.log(`server started on port 3000`));
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => console.log(`server started on port ${PORT}`));
